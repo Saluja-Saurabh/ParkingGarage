@@ -1,0 +1,17 @@
+public String directory = "jdbc:postgresql://localhost:5432/CarParkingLotManagementSQL"
+public String Username = "postgres"
+public String password = "ipad"
+
+public static void main  (String args []) {
+
+ConnectionSQL(directory, Username, password);
+
+}
+
+public static void ConnectionSQL (String directory, String Username, String password) throws SQLException {
+	Connection conn = DriverManager.getConnection(directory, Username, password);
+	Statement statement = conn.getStatement();
+	statement.close();
+	conn.close();
+	
+}
