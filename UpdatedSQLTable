@@ -18,9 +18,9 @@ primary key(name_of_person),
 foreign key(name_of_person) 
 
 	references (membership_id, 
-				name_id),
+				name_id)
 			
-)
+);
 
 --make table for Membership-------------------------------------------------------------------------------------------------------------- 
 
