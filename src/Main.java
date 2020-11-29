@@ -33,11 +33,24 @@ public class Main {
                     }
                 });
 
+        btnGuest.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e) {
+                        GuestDialog GuestDlg = new GuestDialog(frame);
+                        GuestDlg.setVisible(true);
+                        // if logon successfully
+                        if(GuestDlg.isSucceeded()){
+                            btnGuest.setText("Hi " + GuestDlg.getUsername() + "!");
+                        }
+                    }
+                });
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1500, 500);
         frame.setLayout(new FlowLayout());
         frame.getContentPane().add(btnLogin);
         frame.getContentPane().add(btnReg);
+        frame.getContentPane().add(btnGuest);
         frame.getContentPane().add(btnGuest);
         frame.setVisible(true);
     }
