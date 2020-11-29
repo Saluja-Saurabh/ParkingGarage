@@ -5,7 +5,7 @@ import javax.swing.border.*;
 
 public class GuestDialog extends JDialog {
 
-    private JTextField tfFirstName;
+    private static JTextField tfFirstName;
     private JTextField tfCredit;
     private JTextField tfPlate;
     private JPasswordField pfLastName;
@@ -23,7 +23,7 @@ public class GuestDialog extends JDialog {
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints cs = new GridBagConstraints();
 
-        cs.fill = GridBagConstraints.HORIZONTAL;
+        cs.fill = GridBagConstraints.VERTICAL;
 
         lbFirstName = new JLabel("First Name: ");
         cs.gridx = 0;
@@ -107,7 +107,7 @@ public class GuestDialog extends JDialog {
     }
 
 
-    public String getUsername() {
+    public static String getUsername() {
         return tfFirstName.getText().trim();
     }
 

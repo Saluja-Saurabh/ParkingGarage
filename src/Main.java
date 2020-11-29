@@ -8,6 +8,7 @@ public class Main {
         final JButton btnLogin = new JButton("Click to login");
         final JButton btnReg = new JButton("Register");
         final JButton btnGuest = new JButton("Continue as Guest");
+        final JButton btnCheckOut = new JButton("Check Out");
 
         btnLogin.addActionListener(
                 new ActionListener(){
@@ -45,6 +46,14 @@ public class Main {
                     }
                 });
 
+        btnCheckOut.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e) {
+                        CheckOutDialog CheckOutDlg = new CheckOutDialog(frame);
+                        CheckOutDlg.setVisible(true);
+                    }
+                });
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1500, 500);
         frame.setLayout(new FlowLayout());
@@ -52,6 +61,7 @@ public class Main {
         frame.getContentPane().add(btnReg);
         frame.getContentPane().add(btnGuest);
         frame.getContentPane().add(btnGuest);
+        frame.getContentPane().add(btnCheckOut);
         frame.setVisible(true);
     }
 }

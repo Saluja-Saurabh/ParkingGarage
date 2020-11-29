@@ -5,7 +5,7 @@ import javax.swing.border.*;
 
 public class RegisterDialog extends JDialog {
 
-    private JTextField tfUsername;
+    private static JTextField tfUsername;
     private JTextField tfCredit;
     private JTextField tfPlate;
     private JPasswordField pfPassword;
@@ -119,7 +119,7 @@ public class RegisterDialog extends JDialog {
     }
 
 
-    public String getUsername() {
+    public static String getUsername() {
         return tfUsername.getText().trim();
     }
 

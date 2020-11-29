@@ -5,7 +5,7 @@ import javax.swing.border.*;
 
 public class LoginDialog extends JDialog {
 
-    private JTextField tfUsername;
+    private static JTextField tfUsername;
     private JPasswordField pfPassword;
     private JLabel lbUsername;
     private JLabel lbPassword;
@@ -90,7 +90,7 @@ public class LoginDialog extends JDialog {
         setLocationRelativeTo(parent);
     }
 
-    public String getUsername() {
+    public static String getUsername() {
         return tfUsername.getText().trim();
     }
 
