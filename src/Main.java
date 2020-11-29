@@ -21,6 +21,18 @@ public class Main {
                     }
                 });
 
+        btnReg.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e) {
+                        RegisterDialog RegisterDlg = new RegisterDialog(frame);
+                        RegisterDlg.setVisible(true);
+                        // if logon successfully
+                        if(RegisterDlg.isSucceeded()){
+                            btnReg.setText("Hi " + RegisterDlg.getUsername() + "!");
+                        }
+                    }
+                });
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1500, 500);
         frame.setLayout(new FlowLayout());

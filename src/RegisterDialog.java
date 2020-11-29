@@ -3,17 +3,21 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class LoginDialog extends JDialog {
+public class RegisterDialog extends JDialog {
 
     private JTextField tfUsername;
+    private JTextField tfCredit;
+    private JTextField tfPlate;
     private JPasswordField pfPassword;
     private JLabel lbUsername;
     private JLabel lbPassword;
-    private JButton btnLogin;
+    private JLabel lbCredit;
+    private JLabel lbPlate;
+    private JButton btnReg;
     private JButton btnCancel;
     private boolean succeeded;
 
-    public LoginDialog(Frame parent) {
+    public RegisterDialog(Frame parent) {
         super(parent, "Login", true);
 
         JPanel panel = new JPanel(new GridBagLayout());
@@ -46,20 +50,44 @@ public class LoginDialog extends JDialog {
         panel.add(pfPassword, cs);
         panel.setBorder(new LineBorder(Color.GRAY));
 
-        btnLogin = new JButton("Login");
+        lbCredit = new JLabel("Credit Card Number: ");
+        cs.gridx = 0;
+        cs.gridy = 2;
+        cs.gridwidth = 1;
+        panel.add(lbCredit, cs);
 
-        btnLogin.addActionListener(new ActionListener() {
+        tfCredit = new JTextField(20);
+        cs.gridx = 1;
+        cs.gridy = 2;
+        cs.gridwidth = 2;
+        panel.add(tfCredit, cs);
+
+        lbPlate = new JLabel("License Plate Number: ");
+        cs.gridx = 0;
+        cs.gridy = 3;
+        cs.gridwidth = 1;
+        panel.add(lbPlate, cs);
+
+        tfPlate = new JTextField(20);
+        cs.gridx = 1;
+        cs.gridy = 3;
+        cs.gridwidth = 2;
+        panel.add(tfPlate, cs);
+
+        btnReg = new JButton("Register");
+
+        btnReg.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                if (Login.authenticate(getUsername(), getPassword())) {
-                    JOptionPane.showMessageDialog(LoginDialog.this,
-                            "Hi " + getUsername() + "! You have successfully logged in.",
-                            "Login",
+                if (!Login.authenticate(getUsername(), getPassword())) {
+                    JOptionPane.showMessageDialog(RegisterDialog.this,
+                            "Hi " + getUsername() + "! You have successfully registered.",
+                            "Register",
                             JOptionPane.INFORMATION_MESSAGE);
                     succeeded = true;
                     dispose();
                 } else {
-                    JOptionPane.showMessageDialog(LoginDialog.this,
+                    JOptionPane.showMessageDialog(RegisterDialog.this,
                             "Invalid username or password",
                             "Login",
                             JOptionPane.ERROR_MESSAGE);
@@ -79,7 +107,7 @@ public class LoginDialog extends JDialog {
             }
         });
         JPanel bp = new JPanel();
-        bp.add(btnLogin);
+        bp.add(btnReg);
         bp.add(btnCancel);
 
         getContentPane().add(panel, BorderLayout.CENTER);
@@ -90,6 +118,7 @@ public class LoginDialog extends JDialog {
         setLocationRelativeTo(parent);
     }
 
+
     public String getUsername() {
         return tfUsername.getText().trim();
     }
@@ -97,6 +126,7 @@ public class LoginDialog extends JDialog {
     public String getPassword() {
         return new String(pfPassword.getPassword());
     }
+
 
     public boolean isSucceeded() {
         return succeeded;
