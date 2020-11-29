@@ -18,7 +18,7 @@ public class GuestDialog extends JDialog {
     private boolean succeeded;
 
     public GuestDialog(Frame parent) {
-        super(parent, "Login", true);
+        super(parent, "Continue as Guest", true);
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints cs = new GridBagConstraints();

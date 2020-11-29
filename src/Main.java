@@ -9,6 +9,7 @@ public class Main {
         final JButton btnReg = new JButton("Register");
         final JButton btnGuest = new JButton("Continue as Guest");
         final JButton btnCheckOut = new JButton("Check Out");
+        final JButton btnCheckIn = new JButton("Check In");
 
         btnLogin.addActionListener(
                 new ActionListener(){
@@ -54,14 +55,22 @@ public class Main {
                     }
                 });
 
+        btnCheckIn.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e) {
+                        CheckInDialog CheckInDlg = new CheckInDialog(frame);
+                        CheckInDlg.setVisible(true);
+                    }
+                });
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1500, 500);
         frame.setLayout(new FlowLayout());
         frame.getContentPane().add(btnLogin);
         frame.getContentPane().add(btnReg);
         frame.getContentPane().add(btnGuest);
-        frame.getContentPane().add(btnGuest);
         frame.getContentPane().add(btnCheckOut);
+        frame.getContentPane().add(btnCheckIn);
         frame.setVisible(true);
     }
 }

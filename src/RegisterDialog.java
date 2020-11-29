@@ -18,7 +18,7 @@ public class RegisterDialog extends JDialog {
     private boolean succeeded;
 
     public RegisterDialog(Frame parent) {
-        super(parent, "Login", true);
+        super(parent, "Register", true);
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints cs = new GridBagConstraints();

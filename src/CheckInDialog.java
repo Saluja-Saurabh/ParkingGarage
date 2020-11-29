@@ -5,16 +5,16 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import javax.swing.border.*;
 
-public class CheckOutDialog extends JDialog {
+public class CheckInDialog extends JDialog {
 
-    private JButton btnCheckOut;
+    private JButton btnCheckIn;
     private JButton btnCancel;
     private boolean succeeded;
     String name = "";
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     LocalDateTime now = LocalDateTime.now();
-    public CheckOutDialog(Frame parent) {
-        super(parent, "Check Out", true);
+    public CheckInDialog(Frame parent) {
+        super(parent, "Check In", true);
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints cs = new GridBagConstraints();
@@ -31,22 +31,22 @@ public class CheckOutDialog extends JDialog {
             name = "";
         }
 
-        btnCheckOut = new JButton("Check Out");
+        btnCheckIn = new JButton("Check In");
 
-        btnCheckOut.addActionListener(new ActionListener() {
+        btnCheckIn.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 if (!name.equals("")) {
-                    JOptionPane.showMessageDialog(CheckOutDialog.this,
-                            "Hi " + name + "! You have successfully checked out at ." + dtf.format(now),
-                            "Check Out",
+                    JOptionPane.showMessageDialog(CheckInDialog.this,
+                            "Hi " + name + "! You have successfully checked in at ." + dtf.format(now),
+                            "Check In",
                             JOptionPane.INFORMATION_MESSAGE);
                     succeeded = true;
                     dispose();
                 } else {
-                    JOptionPane.showMessageDialog(CheckOutDialog.this,
-                            "Please login, register, or continue as guest before checking out!",
-                            "Check Out Failed",
+                    JOptionPane.showMessageDialog(CheckInDialog.this,
+                            "Please login, register, or continue as guest before checking In!",
+                            "Check In Failed",
                             JOptionPane.ERROR_MESSAGE);
                     succeeded = false;
 
@@ -62,7 +62,7 @@ public class CheckOutDialog extends JDialog {
             }
         });
         JPanel bp = new JPanel();
-        bp.add(btnCheckOut);
+        bp.add(btnCheckIn);
         bp.add(btnCancel);
 
         getContentPane().add(panel, BorderLayout.CENTER);
