@@ -2,10 +2,9 @@
 --username = postgres
 --password = ipad
 
---This is the first step to the SQL design of our project. 
---create tables and its primary keys and foreign keys references...
 
---Created by Deep, Neil, and Saurabh
+--Created by: Deep Trapasia
+
 
 --make table for User------------------------------------------------------------------------------------------------------------------
 create table users (
@@ -18,9 +17,9 @@ primary key(name_of_person),
 foreign key(name_of_person) 
 
 	references (membership_id, 
-				name_id)
+				name_id),
 			
-);
+)
 
 --make table for Membership-------------------------------------------------------------------------------------------------------------- 
 
@@ -469,4 +468,50 @@ foreign key (
 	references (parking_admin)
 	
 	);
------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--Authorizations------------------------------------------------------------------------------------------------------------------
+
+create role AdminUser;
+	grant parking_admin to AdminUser; --if user is a admin
+	grant membership to AdminUser;
+	grant non_membership to AdminUser;
+	grant application_manager to AdminUser;
+	grant parking_lots to AdminUser;
+
+create role StaffUser;
+	grant customers to StaffUser;--if user is a staff
+	grant reservation to StaffUser;
+	grant parking_lots to StaffUser;
+	 
+	
+create role MemberUser;
+	grant membership to MemberUser; --if user is amember
+	grant time_slot to MemberUser;
+	grant car to MemberUser;
+
+create role NonMemberUser;
+	grant non_membership to NonMemberUser; --if user is a nonmember
+	grant time_slot to NonMemberUser;
+	grant car to NonMemberUser;
+
+create role GuestUser;
+	grant non_membership to GuestUser; --if user is a guest
+	grant customers to GuestUser;
+	grant time_slot to GuestUser;
+	grant car to GuestUser;
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
