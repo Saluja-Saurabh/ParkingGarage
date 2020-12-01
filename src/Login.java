@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Login {
     static Statement stmt;
     static ResultSet resultSet;
-
+    public static int pressed = 0;
     public static boolean authenticate(String username, String password) throws SQLException {
         // hardcoded username and password
         if (username.equals("bob") && password.equals("secret")) {
@@ -60,6 +60,12 @@ public class Login {
             }
         }
         return true;
+    }
+    public static void setPressed(){
+        pressed++;
+    }
+    public static Integer getPressed(){
+        return pressed;
     }
 
 }

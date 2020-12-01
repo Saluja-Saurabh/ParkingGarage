@@ -58,6 +58,7 @@ public class LoginDialog extends JDialog {
                                 "Hi " + getUsername() + "! You have successfully logged in.",
                                 "Login",
                                 JOptionPane.INFORMATION_MESSAGE);
+                        Login.setPressed();
                         succeeded = true;
                         dispose();
                     } else {

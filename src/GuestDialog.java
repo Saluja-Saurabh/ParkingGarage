@@ -85,6 +85,7 @@ public class GuestDialog extends JDialog {
                             "Guest",
                             JOptionPane.INFORMATION_MESSAGE);
                     succeeded = true;
+                    Login.setPressed();
                     dispose();
             }
         });

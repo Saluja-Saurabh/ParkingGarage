@@ -25,7 +25,7 @@ public class CheckOutDialog extends JDialog {
         btnCheckOut.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == Main.btnLogin || e.getSource() == Main.btnReg || e.getSource() == Main.btnGuest) {
+                if (Login.getPressed()>0) {
                     JOptionPane.showMessageDialog(CheckOutDialog.this,
                             "You have successfully checked out at ." + dtf.format(now),
                             "Check Out",

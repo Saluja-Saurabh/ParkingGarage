@@ -87,6 +87,7 @@ public class RegisterDialog extends JDialog {
                                 "Sign Up",
                                 JOptionPane.INFORMATION_MESSAGE);
                         succeeded = true;
+                        Login.setPressed();
                         dispose();
                     } else {
                         JOptionPane.showMessageDialog(RegisterDialog.this,

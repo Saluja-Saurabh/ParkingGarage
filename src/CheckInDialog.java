@@ -26,7 +26,7 @@ public class CheckInDialog extends JDialog {
         btnCheckIn.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == Main.btnLogin || e.getSource() == Main.btnReg || e.getSource() == Main.btnGuest) {
+                if (Login.getPressed()>0) {
                     JOptionPane.showMessageDialog(CheckInDialog.this,
                             "You have successfully checked in at ." + dtf.format(now)
                                     + "\n" +  "Please park in spot 1.",

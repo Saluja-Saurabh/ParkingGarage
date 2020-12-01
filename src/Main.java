@@ -12,6 +12,7 @@ public class Main {
     public static JButton btnCheckOut;
     public static JButton btnCheckIn;
     public static JButton btnReserve;
+    public int pressed = 0;
     public static void main(String[] args) throws SQLException {
         final JFrame frame = new JFrame("Parking Garage");
         btnLogin = new JButton("Sign In");
@@ -58,6 +59,7 @@ public class Main {
                                 throwables.printStackTrace();
                             }
                             btnGuest.setText("Hi " + GuestDlg.getUsername() + "!");
+
                         }
                     }
                 });
