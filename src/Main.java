@@ -13,7 +13,7 @@ public class Main {
     public static JButton btnCheckIn;
     public static void main(String[] args) throws SQLException {
         final JFrame frame = new JFrame("Parking Garage");
-        final JButton btnLogin = new JButton("Click to login");
+        final JButton btnLogin = new JButton("Sign In");
         final JButton btnReg = new JButton("Sign Up");
         final JButton btnGuest = new JButton("Continue as Guest");
         final JButton btnCheckOut = new JButton("Check Out");

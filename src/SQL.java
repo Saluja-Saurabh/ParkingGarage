@@ -61,18 +61,18 @@ public class SQL {
         pStmt.setInt(7, ccNum); pStmt.executeUpdate();
     }
 
-    public static void UpdateCar(int licencePlateNum, Boolean isGuestPlate) throws SQLException {
+    public static void UpdateCar(String licencePlateNum, Boolean isGuestPlate) throws SQLException {
         PreparedStatement pStmt = conn.prepareStatement("insert into car values(?, ?)");
-        pStmt.setInt(1, licencePlateNum); pStmt.executeUpdate();
+        pStmt.setString(1, licencePlateNum); pStmt.executeUpdate();
         pStmt.setBoolean(2, isGuestPlate); pStmt.executeUpdate();
     }
 
-    public static void UpdateTimeSlot(int daysRemovedGuest, int checkInTime, int checkOutTime, int spotTimeSync) throws SQLException {
+    public static void UpdateTimeSlot(int daysRemovedGuest, String checkInTime, String checkOutTime, String spotTimeSync) throws SQLException {
         PreparedStatement pStmt = conn.prepareStatement("insert into time_slot values(?, ?, ?, ?)");
         pStmt.setInt(1, daysRemovedGuest); pStmt.executeUpdate();
-        pStmt.setInt(2, checkInTime); pStmt.executeUpdate();
-        pStmt.setInt(3, checkOutTime); pStmt.executeUpdate();
-        pStmt.setInt(4, spotTimeSync); pStmt.executeUpdate();
+        pStmt.setString(2, checkInTime); pStmt.executeUpdate();
+        pStmt.setString(3, checkOutTime); pStmt.executeUpdate();
+        pStmt.setString(4, spotTimeSync); pStmt.executeUpdate();
     }
 
     public static void UpdateParkingAdmin(Boolean updateMembership, String nameID, int membID, int spotsAvailable, int monthlyRevenue, int parkingUsage, int ccMemb, int ccNonMemb) throws SQLException {
@@ -96,14 +96,14 @@ public class SQL {
         pStmt.setInt(5, nonMembBalance); pStmt.executeUpdate();
     }
 
-    public static void UpdateApplicationManager(Boolean membFeeAccess, Boolean membIDAccess, Boolean trackMembSpotsAccess, Boolean userLoginAccess, Boolean guestLoginAccess, Boolean timeStampLoginAccess) throws SQLException {
+    public static void UpdateApplicationManager(int membFeeAccess, int membID, int trackMembSpots, String userLogin, String guestLogin, String timeStampLogin) throws SQLException {
         PreparedStatement pStmt = conn.prepareStatement("insert into application_manager values(?, ?, ?, ?, ?, ?)");
-        pStmt.setBoolean(1, membFeeAccess); pStmt.executeUpdate();
-        pStmt.setBoolean(2, membIDAccess); pStmt.executeUpdate();
-        pStmt.setBoolean(3, trackMembSpotsAccess); pStmt.executeUpdate();
-        pStmt.setBoolean(4, userLoginAccess); pStmt.executeUpdate();
-        pStmt.setBoolean(5, guestLoginAccess); pStmt.executeUpdate();
-        pStmt.setBoolean(6, timeStampLoginAccess); pStmt.executeUpdate();
+        pStmt.setInt(1, membFeeAccess); pStmt.executeUpdate();
+        pStmt.setInt(2, membID); pStmt.executeUpdate();
+        pStmt.setInt(3, trackMembSpots); pStmt.executeUpdate();
+        pStmt.setString(4, userLogin); pStmt.executeUpdate();
+        pStmt.setString(5, guestLogin); pStmt.executeUpdate();
+        pStmt.setString(6, timeStampLogin); pStmt.executeUpdate();
     }
 
 }
