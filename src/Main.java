@@ -11,13 +11,15 @@ public class Main {
     public static JButton btnGuest;
     public static JButton btnCheckOut;
     public static JButton btnCheckIn;
+    public static JButton btnReserve;
     public static void main(String[] args) throws SQLException {
         final JFrame frame = new JFrame("Parking Garage");
-        final JButton btnLogin = new JButton("Sign In");
-        final JButton btnReg = new JButton("Sign Up");
-        final JButton btnGuest = new JButton("Continue as Guest");
-        final JButton btnCheckOut = new JButton("Check Out");
+        btnLogin = new JButton("Sign In");
+        btnReg = new JButton("Sign Up");
+        btnGuest = new JButton("Continue as Guest");
+        btnCheckOut = new JButton("Check Out");
         btnCheckIn = new JButton("Check In");
+        btnReserve = new JButton("Reserve");
 
         btnLogin.addActionListener(
                 new ActionListener(){
@@ -76,6 +78,14 @@ public class Main {
                     }
                 });
 
+        btnReserve.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e) {
+                        ReserveDialog ReserveDlg = new ReserveDialog(frame);
+                        ReserveDlg.setVisible(true);
+                    }
+                });
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1500, 500);
         frame.setLayout(new FlowLayout());
@@ -84,6 +94,7 @@ public class Main {
         frame.getContentPane().add(btnGuest);
         frame.getContentPane().add(btnCheckOut);
         frame.getContentPane().add(btnCheckIn);
+        frame.getContentPane().add(btnReserve);
         frame.setVisible(true);
     }
 

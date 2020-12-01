@@ -10,7 +10,6 @@ public class CheckOutDialog extends JDialog {
     private JButton btnCheckOut;
     private JButton btnCancel;
     private boolean succeeded;
-    String name = "";
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     LocalDateTime now = LocalDateTime.now();
     public CheckOutDialog(Frame parent) {
@@ -28,7 +27,7 @@ public class CheckOutDialog extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == Main.btnLogin || e.getSource() == Main.btnReg || e.getSource() == Main.btnGuest) {
                     JOptionPane.showMessageDialog(CheckOutDialog.this,
-                            "Hi " + name + "! You have successfully checked out at ." + dtf.format(now),
+                            "You have successfully checked out at ." + dtf.format(now),
                             "Check Out",
                             JOptionPane.INFORMATION_MESSAGE);
                     succeeded = true;
