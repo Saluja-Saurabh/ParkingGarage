@@ -12,11 +12,6 @@ public class Main {
     public static JButton btnCheckOut;
     public static JButton btnCheckIn;
     public static void main(String[] args) throws SQLException {
-//        String directory = "jdbc:postgresql://localhost:5432/CarParkingLotManagementSQL";
-//        String Username = "postgres";
-//        String password = "ipad";
-//        SQL.ConnectionSQL(directory, Username, password);
-
         final JFrame frame = new JFrame("Parking Garage");
         final JButton btnLogin = new JButton("Click to login");
         final JButton btnReg = new JButton("Sign Up");

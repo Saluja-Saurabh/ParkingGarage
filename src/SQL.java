@@ -10,12 +10,6 @@ public class SQL {
         Statement statement = resultSet.getStatement();
         statement.close();
         conn.close();
-
-    }
-
-    public static void QueryExecution() throws SQLException {
-        stmt.executeQuery("select * from instructor");
-
     }
 
     public static void UpdateUsers(String username) throws SQLException {
