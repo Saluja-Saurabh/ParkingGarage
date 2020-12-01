@@ -44,7 +44,7 @@ public class ReserveDialog extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 if (Login.getPressed()==0) {
                     JOptionPane.showMessageDialog(ReserveDialog.this,
-                            "Please login, register, or continue as guest before Reserving a parking space!",
+                            "Please login, register, or continue as guest before reserving a parking space!",
                             "Reservation Failed",
                             JOptionPane.ERROR_MESSAGE);
                     succeeded = false;
@@ -52,15 +52,15 @@ public class ReserveDialog extends JDialog {
                 }
                 else if (getUsername().equals("1:00pm")) {
                     JOptionPane.showMessageDialog(ReserveDialog.this,
-                            "Sorry, at that time all spots are full. Please choose another time!",
+                            "Sorry, at that time, all spots are full. Please choose another time!",
                             "Reservation Failed",
                             JOptionPane.ERROR_MESSAGE);
                     succeeded = false;
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(ReserveDialog.this,
-                            "You have successfully reserved a parking spot at " + getUsername(),
-                            "Reservation",
+                            "You have successfully reserved a parking spot at " + getUsername() + "!",
+                            "Reservation Successful",
                             JOptionPane.INFORMATION_MESSAGE);
                     succeeded = true;
                     dispose();
