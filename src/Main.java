@@ -99,7 +99,7 @@ public class Main {
                 });
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1500, 500);
+        frame.setSize(750, 500);
         frame.setLayout(new FlowLayout());
         frame.getContentPane().add(btnLogin);
         frame.getContentPane().add(btnReg);
