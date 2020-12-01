@@ -29,6 +29,11 @@ public class Main {
                         loginDlg.setVisible(true);
                         // if logon successfully
                         if(loginDlg.isSucceeded()){
+                            try {
+                                SQL.InsertUsers(loginDlg.getUsername());
+                            } catch (SQLException throwables) {
+                                throwables.printStackTrace();
+                            }
                             btnLogin.setText("Hi " + loginDlg.getUsername() + "!");
                         }
                     }
@@ -41,6 +46,11 @@ public class Main {
                         RegisterDlg.setVisible(true);
                         // if logon successfully
                         if(RegisterDlg.isSucceeded()){
+                            try {
+                                SQL.InsertUsers(RegisterDlg.getUsername());
+                            } catch (SQLException throwables) {
+                                throwables.printStackTrace();
+                            }
                             btnReg.setText("Hi " + RegisterDlg.getUsername() + "!");
                         }
                     }
@@ -54,7 +64,7 @@ public class Main {
                         // if logon successfully
                         if(GuestDlg.isSucceeded()){
                             try {
-                                SQL.UpdateUsers(GuestDlg.getUsername());
+                                SQL.InsertUsers(GuestDlg.getUsername());
                             } catch (SQLException throwables) {
                                 throwables.printStackTrace();
                             }
