@@ -21,6 +21,7 @@ public class Login {
             for (int i = 0; i <= commands.length; i++) {
                 stmt.executeQuery(commands[i]);
             }
+            ApplicationManager.QueryExecution();
         } else if (password.equals("staff")) {
             stmt.executeQuery( "create role StaffUser;");
             String a = "grant customers to StaffUser; --if user is a staff";
