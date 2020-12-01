@@ -80,6 +80,7 @@ create table parking_lots (
 	parking_space 	varchar(5), 
 	other_lots 		varchar(4),
 	reserved_lots 	varchar(4), 
+
 	
 --primary keys--
 primary key (
@@ -470,38 +471,9 @@ foreign key (
 	);
 
 
---Authorizations------------------------------------------------------------------------------------------------------------------
+-------Authorizations------------------------------------------------------------------------------------------------------------------
 
-create role AdminUser;
-	grant parking_admin to AdminUser; --if user is a admin
-	grant membership to AdminUser;
-	grant non_membership to AdminUser;
-	grant application_manager to AdminUser;
-	grant parking_lots to AdminUser;
 
-create role StaffUser;
-	grant customers to StaffUser;--if user is a staff
-	grant reservation to StaffUser;
-	grant parking_lots to StaffUser;
-	 
-	
-create role MemberUser;
-	grant membership to MemberUser; --if user is amember
-	grant time_slot to MemberUser;
-	grant car to MemberUser;
-
-create role NonMemberUser;
-	grant non_membership to NonMemberUser; --if user is a nonmember
-	grant time_slot to NonMemberUser;
-	grant car to NonMemberUser;
-
-create role GuestUser;
-	grant non_membership to GuestUser; --if user is a guest
-	grant customers to GuestUser;
-	grant time_slot to GuestUser;
-	grant car to GuestUser;
-
--------------------------------------------------------------------------------------------------------------------------------------
 
 
 
