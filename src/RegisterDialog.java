@@ -92,7 +92,7 @@ public class RegisterDialog extends JDialog {
                     } else {
                         JOptionPane.showMessageDialog(RegisterDialog.this,
                                 "Invalid username or password",
-                                "Login",
+                                "Sign Up",
                                 JOptionPane.ERROR_MESSAGE);
                         // reset username and password
                         tfUsername.setText("");

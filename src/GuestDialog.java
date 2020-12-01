@@ -75,7 +75,7 @@ public class GuestDialog extends JDialog {
         cs.gridwidth = 2;
         panel.add(tfPlate, cs);
 
-        btnGuest = new JButton("Register");
+        btnGuest = new JButton("Sign Up");
 
         btnGuest.addActionListener(new ActionListener() {
 
