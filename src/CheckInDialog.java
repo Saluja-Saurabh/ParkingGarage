@@ -21,22 +21,12 @@ public class CheckInDialog extends JDialog {
 
         cs.fill = GridBagConstraints.VERTICAL;
 
-        if (!LoginDialog.getUsername().equals("")||LoginDialog.getUsername()!=null) {
-            name = LoginDialog.getUsername();
-        } else if (!RegisterDialog.getUsername().equals("")||RegisterDialog.getUsername()!=null) {
-            name = RegisterDialog.getUsername();
-        } else if (!GuestDialog.getUsername().equals("")||GuestDialog.getUsername()!=null) {
-            name = GuestDialog.getUsername();
-        }else{
-            name = "";
-        }
-
         btnCheckIn = new JButton("Check In");
 
         btnCheckIn.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                if (!name.equals("")) {
+                if (e.getSource() == Main.btnLogin || e.getSource() == Main.btnReg || e.getSource() == Main.btnGuest) {
                     JOptionPane.showMessageDialog(CheckInDialog.this,
                             "Hi " + name + "! You have successfully checked in at ." + dtf.format(now)
                                     + "\n" +  "Please park in spot 1.",

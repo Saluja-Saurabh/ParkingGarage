@@ -7,7 +7,7 @@ import javax.swing.border.*;
 public class LoginDialog extends JDialog {
 
     private static JTextField tfUsername;
-    private JPasswordField pfPassword;
+    private static JPasswordField pfPassword;
     private JLabel lbUsername;
     private JLabel lbPassword;
     private JButton btnLogin;
@@ -52,27 +52,23 @@ public class LoginDialog extends JDialog {
         btnLogin.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if (Login.authenticate(getUsername(), getPassword())) {
-                        JOptionPane.showMessageDialog(LoginDialog.this,
-                                "Hi " + getUsername() + "! You have successfully logged in.",
-                                "Login",
-                                JOptionPane.INFORMATION_MESSAGE);
-                        succeeded = true;
-                        dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(LoginDialog.this,
-                                "Invalid username or password",
-                                "Login",
-                                JOptionPane.ERROR_MESSAGE);
-                        // reset username and password
-                        tfUsername.setText("");
-                        pfPassword.setText("");
-                        succeeded = false;
+                if (Login.authenticate(getUsername(), getPassword())) {
+                    JOptionPane.showMessageDialog(LoginDialog.this,
+                            "Hi " + getUsername() + "! You have successfully logged in.",
+                            "Login",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    succeeded = true;
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(LoginDialog.this,
+                            "Invalid username or password",
+                            "Login",
+                            JOptionPane.ERROR_MESSAGE);
+                    // reset username and password
+                    tfUsername.setText("");
+                    pfPassword.setText("");
+                    succeeded = false;
 
-                    }
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
                 }
             }
         });
@@ -99,8 +95,8 @@ public class LoginDialog extends JDialog {
         return tfUsername.getText().trim();
     }
 
-    public String getPassword() {
-        return new String(pfPassword.getPassword());
+    public static String getPassword() {
+        return String.valueOf(pfPassword.getPassword());
     }
 
     public boolean isSucceeded() {

@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.SQLException;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -19,7 +18,7 @@ public class RegisterDialog extends JDialog {
     private boolean succeeded;
 
     public RegisterDialog(Frame parent) {
-        super(parent, "Register", true);
+        super(parent, "Sign Up", true);
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints cs = new GridBagConstraints();
@@ -75,32 +74,28 @@ public class RegisterDialog extends JDialog {
         cs.gridwidth = 2;
         panel.add(tfPlate, cs);
 
-        btnReg = new JButton("Register");
+        btnReg = new JButton("Sign Up");
 
         btnReg.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if (Login.authenticate(getUsername(), getPassword())) {
-                        JOptionPane.showMessageDialog(RegisterDialog.this,
-                                "Hi " + getUsername() + "! You have successfully registered.",
-                                "Register",
-                                JOptionPane.INFORMATION_MESSAGE);
-                        succeeded = true;
-                        dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(RegisterDialog.this,
-                                "Invalid username or password",
-                                "Login",
-                                JOptionPane.ERROR_MESSAGE);
-                        // reset username and password
-                        tfUsername.setText("");
-                        pfPassword.setText("");
-                        succeeded = false;
+                if (!Login.authenticate(getUsername(), getPassword())) {
+                    JOptionPane.showMessageDialog(RegisterDialog.this,
+                            "Hi " + getUsername() + "! You have successfully registered.",
+                            "Sign Up",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    succeeded = true;
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(RegisterDialog.this,
+                            "Invalid username or password",
+                            "Login",
+                            JOptionPane.ERROR_MESSAGE);
+                    // reset username and password
+                    tfUsername.setText("");
+                    pfPassword.setText("");
+                    succeeded = false;
 
-                    }
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
                 }
             }
         });

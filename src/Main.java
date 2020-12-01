@@ -6,6 +6,11 @@ import java.sql.*;
 
 
 public class Main {
+    public static JButton btnLogin;
+    public static JButton btnReg;
+    public static JButton btnGuest;
+    public static JButton btnCheckOut;
+    public static JButton btnCheckIn;
     public static void main(String[] args) throws SQLException {
 //        String directory = "jdbc:postgresql://localhost:5432/CarParkingLotManagementSQL";
 //        String Username = "postgres";
@@ -14,10 +19,10 @@ public class Main {
 
         final JFrame frame = new JFrame("Parking Garage");
         final JButton btnLogin = new JButton("Click to login");
-        final JButton btnReg = new JButton("Register");
+        final JButton btnReg = new JButton("Sign Up");
         final JButton btnGuest = new JButton("Continue as Guest");
         final JButton btnCheckOut = new JButton("Check Out");
-        final JButton btnCheckIn = new JButton("Check In");
+        btnCheckIn = new JButton("Check In");
 
         btnLogin.addActionListener(
                 new ActionListener(){
@@ -86,4 +91,5 @@ public class Main {
         frame.getContentPane().add(btnCheckIn);
         frame.setVisible(true);
     }
+
 }

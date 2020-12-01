@@ -21,22 +21,12 @@ public class CheckOutDialog extends JDialog {
 
         cs.fill = GridBagConstraints.VERTICAL;
 
-        if (!LoginDialog.getUsername().equals("")) {
-            name = LoginDialog.getUsername();
-        } else if (!RegisterDialog.getUsername().equals("")) {
-            name = RegisterDialog.getUsername();
-        } else if (!GuestDialog.getUsername().equals("")) {
-            name = GuestDialog.getUsername();
-        }else{
-            name = "";
-        }
-
         btnCheckOut = new JButton("Check Out");
 
         btnCheckOut.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                if (!name.equals("")) {
+                if (e.getSource() == Main.btnLogin || e.getSource() == Main.btnReg || e.getSource() == Main.btnGuest) {
                     JOptionPane.showMessageDialog(CheckOutDialog.this,
                             "Hi " + name + "! You have successfully checked out at ." + dtf.format(now),
                             "Check Out",
